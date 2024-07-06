@@ -1,0 +1,30 @@
+- name: Clone Neovim
+  ansible.builtin.git:
+    repo: 'https://github.com/neovim/neovim.git'
+    dest: "{{ lookup('env', 'HOME') }}/neovim"
+  tags:
+    - install
+- name: Build neovim
+  shell: "cd {{ lookup('env', 'HOME') }}/neovim && make"
+  tags:
+    - install
+- name: Install neovim
+  shell: "cd {{ lookup('env', 'HOME') }}/neovim && make install"
+  tags:
+    - install
+- name: Neovim Plugin Development 1
+  apt: name=luarocks
+  tags:
+    - install
+- name: Neovim Plugin Development 2 luacheck
+  shell: luarocks install luacheck
+  tags:
+    - install
+- name: Install Nerd fonts
+  shell: font_url='https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/JetBrainsMono.zip'; font_name=${font_url##*/}; wget ${font_url} && unzip ${font_name} -d ~/.fonts && fc-cache -fv ;
+  tags:
+    - install
+- name: Install Nvchad
+  shell: nvim +MasonInstallAll +qall +silent
+  tags:
+    - install
