@@ -5,7 +5,7 @@
     mode: 0700
     state: directory
   tags:
-    - install
+    - all
 - name: Install ssh key
   become_user: root
   copy:
@@ -13,7 +13,7 @@
     dest: "{{ dest_key }}"
     mode: 0600
   tags:
-    - install
+    - all
 - name: Set authorized key took from file
   ansible.posix.authorized_key:
     # user: "{{ lookup('env', 'USER') }}"

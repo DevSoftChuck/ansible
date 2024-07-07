@@ -3,28 +3,28 @@
     repo: 'https://github.com/neovim/neovim.git'
     dest: "{{ lookup('env', 'HOME') }}/neovim"
   tags:
-    - install
+    - all
 - name: Build neovim
   shell: "cd {{ lookup('env', 'HOME') }}/neovim && make"
   tags:
-    - install
+    - all
 - name: Install neovim
   shell: "cd {{ lookup('env', 'HOME') }}/neovim && make install"
   tags:
-    - install
+    - all
 - name: Neovim Plugin Development 1
   apt: name=luarocks
   tags:
-    - install
+    - all
 - name: Neovim Plugin Development 2 luacheck
   shell: luarocks install luacheck
   tags:
-    - install
+    - all
 - name: Install Nerd fonts
   shell: font_url='https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/JetBrainsMono.zip'; font_name=${font_url##*/}; wget ${font_url} && unzip ${font_name} -d ~/.fonts && fc-cache -fv ;
   tags:
-    - install
+    - all
 - name: Install Nvchad
   shell: nvim +MasonInstallAll +qall +silent
   tags:
-    - install
+    - all

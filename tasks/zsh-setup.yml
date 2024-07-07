@@ -1,24 +1,24 @@
 - name: Install ZSH
   apt: name=zsh
   tags:
-    - install
+    - all
 - name: Change shell to zsh
   shell: chsh -s $(which zsh)
   tags:
-    - install
+    - all
 - name: Oh-My-Zsh
   shell: curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
   tags:
-    - install
+    - all
 - name: Install zsh-autosuggestions
   ansible.builtin.git:
     repo: 'https://github.com/zsh-users/zsh-autosuggestions.git'
     dest: "~/.oh-my-zsh/plugins/zsh-autosuggestions"
   tags:
-    - install
+    - all
 - name: Delete .zshrc default file
   ansible.builtin.file:
     state: absent
     path: "{{ lookup('env','HOME') }}/.zshrc"
   tags:
-    -install
+    - all

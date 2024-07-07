@@ -2,16 +2,15 @@
   apt:
     name: ["build-essential", "cmake", "pkg-config", "libpthread-stubs0-dev"]
   tags:
-    - install
+    - all
 - name: Install System Packages 2 (unzip, libtool, libtool-bin, gettext)
   apt:
     name: [ "unzip", "libtool", "libtool-bin", "gettext"]
   tags:
-    - install
+    - all
 - name: Install System Packages 3 (the rest)
   apt: name={{item}}
   with_items:
-    - curl
     - htop
     - golang
     - lsof
@@ -23,4 +22,4 @@
     - moreutils
     - ripgrep
   tags:
-    - install
+    - all

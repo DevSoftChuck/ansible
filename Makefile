@@ -1,6 +1,6 @@
-.PHONY: ansible
-ansible:
-	ansible-playbook -t install --ask-vault-pass local.yml
+.PHONY: all
+all:
+	ansible-playbook -t all --ask-vault-pass local.yml
 
 .PHONY: docker
 docker:
