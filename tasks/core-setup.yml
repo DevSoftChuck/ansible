@@ -12,6 +12,7 @@
   apt: name={{item}}
   with_items:
     - pulseaudio 
+    - redshift
     - pulseaudio-utils
     - xautolock
     - dunst
