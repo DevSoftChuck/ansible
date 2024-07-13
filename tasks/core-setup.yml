@@ -11,6 +11,9 @@
 - name: Install System Packages 3 (the rest)
   apt: name={{item}}
   with_items:
+    - pulseaudio 
+    - pulseaudio-utils
+    - xautolock
     - dunst
     - xrandr
     - htop
