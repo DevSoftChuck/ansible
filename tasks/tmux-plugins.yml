@@ -1,0 +1,10 @@
+- name: Get Tmux Plugin Manager
+  ansible.builtin.git:
+    repo: 'git@github.com:tmux-plugins/tpm.git'
+    dest: "{{ lookup('env', 'HOME') }}/.tmux/plugins/tpm"
+    recursive: yes
+    update: yes
+    accept_hostkey: yes
+    version: master
+  tags:
+    - all

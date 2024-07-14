@@ -29,4 +29,6 @@
     - include_tasks: tasks/productivity.yml
       tags:
         - all
-
+    - include_tasks: tasks/tmux-plugins.yml
+      tags:
+        - all
