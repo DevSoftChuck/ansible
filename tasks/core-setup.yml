@@ -8,9 +8,11 @@
     name: [ "unzip", "libtool", "libtool-bin", "gettext"]
   tags:
     - all
-- name: Install System Packages 3 (the rest)
+- name: Install System Packages 3
   apt: name={{item}}
   with_items:
+    - xdotool
+    - xprop
     - pulseaudio 
     - redshift
     - pulseaudio-utils
@@ -28,5 +30,12 @@
     - moreutils
     - ripgrep
     - tmux
+    - fzf
+    - xclip
+    - tldr
+  tags:
+    - all
+- name: Install System Packages 4 (Using python)
+  shell: "pip3 install --user --upgrade i3-resurrect"
   tags:
     - all
