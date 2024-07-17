@@ -1,6 +1,7 @@
 - hosts: localhost
   become_user: root
   vars:
+    steam_kernel_rule: "./60-steam-input.rules"
     source_key: "./.ssh/id_ed25519"
     dest_key: "{{ lookup('env', 'HOME') }}/.ssh/id_ed25519"
   pre_tasks:

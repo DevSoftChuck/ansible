@@ -1,0 +1,8 @@
+- name: Set steam rules to use ps5 controller
+  become_user: root
+  copy:
+    src: "{{ steam_kernel_rule }}"
+    dest: "/etc/udev/rules.d/"
+    mode: 0644
+  tags:
+    - all
