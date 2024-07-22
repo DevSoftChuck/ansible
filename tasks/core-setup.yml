@@ -11,7 +11,6 @@
 - name: Install System Packages 3
   apt: name={{item}}
   with_items:
-    - feh
     - lm-sensors
     - xdotool
     - xprop

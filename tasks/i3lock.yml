@@ -1,0 +1,37 @@
+- name: Install dependencies for i3lock
+  apt: name={{item}}
+  with_items:
+    - feh
+    - imagemagick
+    - autoconf
+    - gcc 
+    - make 
+    - pkg-config 
+    - libpam0g-dev 
+    - libcairo2-dev 
+    - libfontconfig1-dev 
+    - libxcb-composite0-dev 
+    - libev-dev 
+    - libx11-xcb-dev 
+    - libxcb-xkb-dev 
+    - libxcb-xinerama0-dev 
+    - libxcb-randr0-dev 
+    - libxcb-image0-dev 
+    - libxcb-util-dev
+    - libxcb-xrm-dev 
+    - libxkbcommon-dev 
+    - libxkbcommon-x11-dev 
+    - libjpeg-dev
+  tags:
+    - all
+- name: Clone i3lock-fancy
+  ansible.builtin.git:
+    repo: 'https://github.com/meskarune/i3lock-fancy.git'
+    dest: "{{ lookup('env', 'HOME') }}/i3lock-fancy"
+  tags:
+    - all
+- name: Install i3lock-fancy 
+  become_user: root
+  shell: "cd {{ lookup('env', 'HOME') }}/i3lock-fancy && make install"
+  tags:
+    - all
