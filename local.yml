@@ -36,3 +36,6 @@
     - include_tasks: tasks/i3lock.yml
       tags:
         - all
+    - include_tasks: tasks/neovide.yml
+      tags:
+        - all

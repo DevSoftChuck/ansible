@@ -1,0 +1,11 @@
+- name: Download Neovide
+  become_user: root
+ && 
+  shell: "wget https://github.com/neovide/neovide/releases/download/0.13.3/neovide-linux-x86_64.tar.gz -P {{ lookup('env', 'HOME') }}/.local/bin"
+  tags:
+    - all
+- name: Untar neovide
+  become_user: root
+  shell: "cd {{ lookup('env', 'HOME') }}/.local/bin && tar -xzf neovide-linux-x86_64.tar.gz && rm neovide-linux-x86_64.tar.gz"
+  tags:
+    - all
